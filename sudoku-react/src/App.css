@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c9d6ff, #e2e2e2); /* soft gradient */
+}
+
+/* Title */
+h1 {
+  margin-top: 20px;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Controls */
+.controls {
+  margin: 20px;
+  background: #ffffffcc;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.controls select,
+.controls button {
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #534a5c;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover,
+.controls select:hover {
+  background: #35bd6e;
+}
+
+.timer {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Board wrapper */
+.board-container {
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  display: inline-block;
+}
+
+/* Sudoku board */
+.board {
+  display: inline-block;
+  border: 3px solid black;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.cell,
+.input-cell {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-cell {
+  outline: none;
+}
+
+.input-cell.wrong {
+  background-color: #ffcccc;
+  border: 2px solid red;
+}
+
+.cell.fixed {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+/* Thicker borders for 3x3 Sudoku blocks */
+.row:nth-child(3n) .cell,
+.row:nth-child(6n) .cell {
+  border-bottom: 3px solid black;
+}
+
+.row:nth-child(3n+1) .cell {
+  border-top: 3px solid black;
+}
+
+.cell:nth-child(3n) {
+  border-right: 3px solid black;
+}
+
+.cell:nth-child(3n+1) {
+  border-left: 3px solid black;
+}
+
+
