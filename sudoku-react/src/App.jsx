@@ -15,7 +15,6 @@ function App() {
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
 
-  // Timer
   useEffect(() => {
     let interval = null;
     if (timerOn) {
@@ -26,10 +25,9 @@ function App() {
     return () => clearInterval(interval);
   }, [timerOn]);
 
-  // Shuffle array helper
+ 
   const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
 
-  // Generate solved board
   const generateSolvedBoard = () => {
     const grid = Array.from({ length: 9 }, () => Array(9).fill(0));
 
@@ -66,7 +64,7 @@ function App() {
     return grid;
   };
 
-  // Generate puzzle from solved board
+ 
   const generatePuzzleFromSolved = (fullBoard, level) => {
     const grid = fullBoard.map((row) => [...row]);
     let cellsToRemove = level === "easy" ? 35 : level === "medium" ? 45 : 55;
@@ -83,7 +81,7 @@ function App() {
     return grid;
   };
 
-  // Get new puzzle
+ 
   const getPuzzle = () => {
     const fullSolved = generateSolvedBoard();
     const puzzle = generatePuzzleFromSolved(fullSolved, difficulty);
@@ -94,13 +92,13 @@ function App() {
     setTimerOn(true);
   };
 
-  // Solve puzzle
+  
   const solvePuzzle = () => {
     setBoard(solvedBoard.map((row) => [...row]));
     setTimerOn(false);
   };
 
-  // Give hint
+  
   const giveHint = () => {
     for (let r = 0; r < 9; r++) {
       for (let c = 0; c < 9; c++) {
